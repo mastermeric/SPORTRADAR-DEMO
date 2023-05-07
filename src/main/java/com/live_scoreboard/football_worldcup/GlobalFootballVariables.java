@@ -4,12 +4,12 @@ public class GlobalFootballVariables {
     //Initial values maybe needed different defaults.
     public static Integer FootballInitialScore = 0;
 
-    //Endpoints
-    public static String EndPoint_HealthCheck = "/api/healthCheck";
-	public static String EndPoint_StartNewGame = "/api/startNewGame";
-	public static String EndPoint_UpdateScore = "/api/updateScore";
-	public static String EndPoint_FinishGame = "/api/finishGame";
-	public static String EndPoint_GetSummary= "/api/getSummary";
+    //Endpoints 
+    public static final String EndPoint_HealthCheck = "/api/healthCheck";
+	public static final String  EndPoint_StartNewGame = "/api/startNewGame";
+	public static final String EndPoint_UpdateScore = "/api/updateScore";
+	public static final String EndPoint_FinishGame = "/api/finishGame";
+	public static final String EndPoint_GetSummary= "/api/getSummary";
 
     //String messages
     public static String SuccessServerMessage = "Server-Is-Running";
