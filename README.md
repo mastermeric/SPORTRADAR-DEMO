@@ -17,6 +17,7 @@ This project is simple API implementation to show basic Football Scoreboard func
 Project is created with:
 * JAva Spring Boot Api
 * JUnit for TESTs
+* Date-Time parameters selected as "Unix Time Stamp" for better flexiblity and easy sorting operations.
 	
 ## Setup
 To run this project, install it locally using npm:
