@@ -50,11 +50,11 @@ $ git clone https://github.com/mastermeric/SPORTRADAR-DEMO.git
 
 * Step-2 : Update the games :
 - [x] http://localhost:8080/api/updateScore/Mexico/India/1/0
+- [x] http://localhost:8080/api/updateScore/Germany/Spain/4/4
+- [x] http://localhost:8080/api/updateScore/Brasil/Italy/8/0
 - [x] http://localhost:8080/api/updateScore/Norway/Denmark/2/0
 - [x] http://localhost:8080/api/updateScore/Canada/Argentina/3/0
 - [x] http://localhost:8080/api/updateScore/France/Portugal/4/0
-- [x] http://localhost:8080/api/updateScore/Germany/Spain/4/4
-- [x] http://localhost:8080/api/updateScore/Brasil/Italy/8/0
 - [x] http://localhost:8080/api/updateScore/Turkey/Holland/2/6
 - [x] http://localhost:8080/api/updateScore/Uruguay/Japan/7/1
 
