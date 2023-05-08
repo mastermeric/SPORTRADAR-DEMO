@@ -78,7 +78,7 @@ $ git clone https://github.com/mastermeric/SPORTRADAR-DEMO.git
 ![image](https://user-images.githubusercontent.com/49819371/236709010-181a867d-5fb3-4efe-a4f5-f5ba4c67b003.png)
 
 
-* Get teh Scoreboard :
+* Get the Scoreboard :
 
 ![image](https://user-images.githubusercontent.com/49819371/236709099-345d4834-6108-496c-910f-018baaeb58f8.png)
 
