@@ -1,7 +1,11 @@
 package com.live_scoreboard.football_worldcup.service;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 import java.time.Instant;
 import com.live_scoreboard.football_worldcup.GlobalFootballVariables;
 import com.live_scoreboard.football_worldcup.GlobalFootballVariables.GameStatus;
@@ -18,8 +22,8 @@ public class FootballService implements IFootballService {
 
             //Check IF Same Game Exists and STATUS is STARTED (IN_PROGRESS)
             for (FootballModel iterable_element : GlobalFootballVariables.ScoreBoard) {
-                if( iterable_element.HomeTeamName.equals(HomeTeamName) && iterable_element.AwayTeamName.equals(AwayTeamName)
-                && iterable_element.GameStatus.equals(GlobalFootballVariables.GameStatus.IN_PROGRESS)
+                if( iterable_element.getHomeTeamName().equals(HomeTeamName) && iterable_element.getAwayTeamName().equals(AwayTeamName)
+                && iterable_element.getGameStatus().equals(GlobalFootballVariables.GameStatus.IN_PROGRESS)
                 ) {
                     recordCount++;
                 }
@@ -30,22 +34,22 @@ public class FootballService implements IFootballService {
                 return GlobalFootballVariables.ErrorGameAlreadyStarted;
             } 
             else {
-                FootballModel model = new FootballModel();
+                FootballModel game = new FootballModel();
 
                 //set values
-                model.HomeTeamName = HomeTeamName;
-                model.AwayTeamName = AwayTeamName;
-                model.HomeTeamScore = GlobalFootballVariables.FootballInitialScore;
-                model.AwayTeamScore = GlobalFootballVariables.FootballInitialScore;
+                game.setHomeTeamName(HomeTeamName);
+                game.setAwayTeamName(AwayTeamName);
+                game.setHomeTeamScore(GlobalFootballVariables.FootballInitialScore);
+                game.setAwayTeamScore(GlobalFootballVariables.FootballInitialScore);
 
                 //Update the status
-                model.GameStatus = GlobalFootballVariables.GameStatus.IN_PROGRESS;
+                game.setGameStatus(GlobalFootballVariables.GameStatus.IN_PROGRESS);
 
                 //Update score
-                model.TotalsOfScore = model.HomeTeamScore + model.AwayTeamScore;
+                game.setTotalsOfScore(game.getHomeTeamScore() + game.getAwayTeamScore());
         
                 //Update list
-                GlobalFootballVariables.ScoreBoard.add(model);
+                GlobalFootballVariables.ScoreBoard.add(game);
 
                 //send result
                 return GlobalFootballVariables.SuccessGameStarted;
@@ -64,16 +68,17 @@ public class FootballService implements IFootballService {
             Integer updatedRecordCount = 0;
 
             for (FootballModel iterable_element : GlobalFootballVariables.ScoreBoard) {
-                if(iterable_element.HomeTeamName.equals(HomeTeamName) && iterable_element.AwayTeamName.equals(AwayTeamName)) {
-                    
+                if(iterable_element.getHomeTeamName().equals(HomeTeamName) 
+                && iterable_element.getAwayTeamName().equals(AwayTeamName)) 
+                {                    
                     // Get current Unix Time Stamp.
                     long currentDate = Instant.now().getEpochSecond(); 
 
                     //Update new values.
-                    iterable_element.HomeTeamScore = newScoreToHomeTeam;
-                    iterable_element.AwayTeamScore = newScoreToAwayTeam;
-                    iterable_element.TotalsOfScore = iterable_element.HomeTeamScore + iterable_element.AwayTeamScore;
-                    iterable_element.GameUpdateTime = currentDate;
+                    iterable_element.setHomeTeamScore(newScoreToHomeTeam);
+                    iterable_element.setAwayTeamScore(newScoreToAwayTeam);
+                    iterable_element.setTotalsOfScore( newScoreToHomeTeam + newScoreToAwayTeam);
+                    iterable_element.setGameUpdateTime(currentDate);
 
                     updatedRecordCount++;
                 }
@@ -103,19 +108,19 @@ public class FootballService implements IFootballService {
             for (FootballModel iterable_element : GlobalFootballVariables.ScoreBoard) {
                 if(
                     //check if record exists, Also check if status is IN_PROGRESS
-                    iterable_element.HomeTeamName.equals(HomeTeamName)
-                    && iterable_element.AwayTeamName.equals(AwayTeamName)
-                    && iterable_element.GameStatus.equals(GlobalFootballVariables.GameStatus.IN_PROGRESS)
+                    iterable_element.getHomeTeamName().equals(HomeTeamName)
+                    && iterable_element.getAwayTeamName().equals(AwayTeamName)
+                    && iterable_element.getGameStatus().equals(GlobalFootballVariables.GameStatus.IN_PROGRESS)
                 ) 
                 {                    
                     // Get current Unix Time Stamp.
                     long currentDate = Instant.now().getEpochSecond(); 
 
                     //Update new values.
-                    iterable_element.GameFinishTime = currentDate;
+                    iterable_element.setGameFinishTime(currentDate);
 
                     //Update the status : THIS IS NOT NECESSARY BUT LEFT FOR FUTURE USE CASES
-                    iterable_element.GameStatus = GameStatus.FINISHED;
+                    iterable_element.setGameStatus(GameStatus.FINISHED);
 
                     //Rmove the game from Scoreboard
                     GlobalFootballVariables.ScoreBoard.remove(iterable_element);
@@ -137,15 +142,70 @@ public class FootballService implements IFootballService {
     }
 
     @Override
-    public List<FootballModel> getGameSummary() {
-        List<FootballModel> tempScoreBoard = new ArrayList<FootballModel>();
+    public List<String> getGameSummary() {
 
-        for (FootballModel iterable_element : GlobalFootballVariables.ScoreBoard) {
+        //Order all games by TotalsOfScore        
+        Collections.sort(
+            GlobalFootballVariables.ScoreBoard, // Collection we want to order
+            Comparator.comparing(FootballModel::getTotalsOfScore) // Ordering by TotalsOfScore
+            .reversed() // Default order work as Ascending
+            ); 
+
+        // group by score : Stream API is used for group oepration.
+        Map<Integer, List<FootballModel>> gamesByScore = GlobalFootballVariables.ScoreBoard.stream()
+        .collect(Collectors.groupingBy(FootballModel::getTotalsOfScore));
+
+        //main collection stores sub lists
+        ArrayList<List<FootballModel>> listOfSameCrose =  new ArrayList<List<FootballModel>>();
+
+        for(Map.Entry<Integer, List<FootballModel>> entry : gamesByScore.entrySet()) {
             
+            // Get Key from Kay-Value pairs of the hashmap
+            Integer key = entry.getKey();            
+
+            //get a list from key
+            List<FootballModel> model = gamesByScore.get(key);
+
+            //Order each list by GameFinishTime
+            Collections.sort(model, Comparator.comparing(FootballModel::getGameFinishTime).reversed());
+
+            //add all Lists to main collection
+            listOfSameCrose.add(model);
+        }
+        
+
+        //Prepare final List of games.
+        ArrayList<FootballModel> FinalList = new ArrayList<FootballModel>();
+
+        //Loop each sublist
+        for (List<FootballModel> item : listOfSameCrose) {
+            // Loop each game in the sublists
+            for (FootballModel footballModel : item) {
+                FinalList.add(footballModel);
+            }            
         }
 
-        return GlobalFootballVariables.ScoreBoard;
-    }
-    
-    
+        //Reverse final list for Decending order 
+        Collections.reverse(FinalList);
+
+
+        //Just Readable Scoreboard with additional typo
+        List<String> tempScoreBoardList = new ArrayList<String>();    
+
+        for(Integer index = 0 ; index <FinalList.size() ; index++ ) {
+
+            // First index is 0, so make it start from 1 to make  more readable
+            Integer gameNumber = index + 1 ;
+
+            // Make readble string phrases
+            tempScoreBoardList.add(
+                gameNumber.toString() + ". "
+                + FinalList.get(index).getHomeTeamName() + " " 
+                + FinalList.get(index).getHomeTeamScore() + " - " 
+                + FinalList.get(index).getAwayTeamName() + " " 
+                + FinalList.get(index).getAwayTeamScore());            
+        }        
+
+        return tempScoreBoardList;
+    }    
 }

@@ -28,7 +28,7 @@ public class GlobalFootballVariables {
     public static String SuccessResult = "OK";
 
 
-    public static String ErrorResult = "NOK";
+    public static String ErrorResult = "Error.NOK";
     public static String ErrorNoRecordFound = "Error. No-Proper-Record-Found";    
     public static String ErrorGameAlreadyStarted = "Error. This-Game-Already-Started-Still-In-Progress";
     public static String ErrorGameAlreadyFinished = "Error. Game-Already-Finished";
