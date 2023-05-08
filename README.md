@@ -4,9 +4,9 @@
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Setup](#setup)
-* [Known Issues](#Known-Issues)
-* [Example Test Scenario](#ExampleTestScenario)
-* [Some screenshots](#SomeScreenshots)
+* [Known issues](#known-issues)
+* [Example test scenario](#example-test-scenario)
+* [Some screenshots](#some-screenshots)
 
 
 
