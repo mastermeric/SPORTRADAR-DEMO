@@ -37,17 +37,24 @@ $ git clone https://github.com/mastermeric/SPORTRADAR-DEMO.git
 ## Example Test Scenario 
 * Step-1 : Start some games :
 - [x] http://localhost:8080/api/startNewGame/Germany/Spain
+- [x] http://localhost:8080/api/startNewGame/Brasil/Italy
 - [x] http://localhost:8080/api/startNewGame/France/Portugal
 - [x] http://localhost:8080/api/startNewGame/Norway/Denmark
+- [x] http://localhost:8080/api/startNewGame/Turkey/Holland
+- [x] http://localhost:8080/api/startNewGame/Uruguay/Japan
+- [x] http://localhost:8080/api/startNewGame/Mexico/India
+- [x] http://localhost:8080/api/startNewGame/Canada/Argentina
 
-* Step-2 : Update games :
-- [x] http://localhost:8080/api/updateScore/Germany/Spain/5/3
-- [x] http://localhost:8080/api/updateScore/France/Portugal/1/1
-- [x] http://localhost:8080/api/updateScore/France/Portugal/2/3
-- [x] http://localhost:8080/api/updateScore/Norway/Denmark/2/1
-- [x] http://localhost:8080/api/updateScore/Norway/Denmark/3/1
-- [x] http://localhost:8080/api/updateScore/Norway/Denmark/4/1
 
+* Step-2 : Update the games :
+- [x] http://localhost:8080/api/updateScore/Mexico/India/1/0
+- [x] http://localhost:8080/api/updateScore/Norway/Denmark/2/0
+- [x] http://localhost:8080/api/updateScore/Canada/Argentina/3/0
+- [x] http://localhost:8080/api/updateScore/France/Portugal/4/0
+- [x] http://localhost:8080/api/updateScore/Germany/Spain/4/4
+- [x] http://localhost:8080/api/updateScore/Brasil/Italy/8/0
+- [x] http://localhost:8080/api/updateScore/Turkey/Holland/2/6
+- [x] http://localhost:8080/api/updateScore/Uruguay/Japan/7/1
 
 * Step-3 : Finish some games :
 - [x] http://localhost:8080/api/finishGame/Germany/Spain
