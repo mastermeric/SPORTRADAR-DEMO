@@ -4,6 +4,7 @@
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Setup](#setup)
+* [Known Issues](#Known-Issues)
 * [Example Test Scenario](#ExampleTestScenario)
 * [Some screenshots](#SomeScreenshots)
 
@@ -32,6 +33,11 @@ Project is created with:
 ```
 $ git clone https://github.com/mastermeric/SPORTRADAR-DEMO.git
 ```
+
+
+## Known Issues :
+- [x] Multi-threaded usage need to be maintained. (Static memory list is used which is open to risks in concurrency)
+- [x] A database will be betetr solution instead of in-memory collection (To do maintainable Sorting/Filtering etc)
 
 
 ## Example Test Scenario 
