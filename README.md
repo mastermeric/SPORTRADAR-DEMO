@@ -20,9 +20,10 @@ Project is created with:
 * Date-Time parameters selected as "Unix Time Stamp" for better flexiblity and easy sorting operations.
 	
 ## Setup
-1-) Clone git repository 
-2-) Run Java application in your IDE
-3-) Open a borwser or Postman to browse the page at "http://localhost:8080"
+1. Clone git repository 
+2. Run Java application in your IDE
+3. Open a borwser or Postman to browse the page at "http://localhost:8080"
+4. Enter Paramaters as Query String values on a Browser (Or on a Postman like tool)
 
 ```
 $ git clone https://github.com/mastermeric/SPORTRADAR-DEMO.git
