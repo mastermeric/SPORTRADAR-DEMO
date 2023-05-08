@@ -4,6 +4,7 @@
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Setup](#setup)
+* [Example Test Scenario](#ExampleTestScenario)
 
 ## General info
 This project is simple API implementation to show basic Football Scoreboard functionalaties such as :
@@ -53,7 +54,7 @@ $ git clone https://github.com/mastermeric/SPORTRADAR-DEMO.git
 - [x] http://localhost:8080/api/getSummary
 
 
-## Soem screenshots for successfull operation :
+## Some screenshots for successfull operation :
 
 * Start a game :
 
