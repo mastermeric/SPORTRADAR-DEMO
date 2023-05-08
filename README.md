@@ -1,4 +1,4 @@
-# SPORTRADAR-DEMO (API implementation)
+# SPORTRADAR-DEMO (Spring Rest API implementation)
 
 ## Table of contents
 * [General info](#general-info)
