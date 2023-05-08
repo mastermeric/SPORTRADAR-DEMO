@@ -52,8 +52,19 @@ $ git clone https://github.com/mastermeric/SPORTRADAR-DEMO.git
 - [x] http://localhost:8080/api/getSummary
 
 
+## Soem screenshots for successfull operation :
+
+* Start a game :
+![image](https://user-images.githubusercontent.com/49819371/236708905-d96df803-67b7-4f63-a7cc-e17c71dabd03.png)
+
+* Update the game :
+![image](https://user-images.githubusercontent.com/49819371/236708955-049e4d82-3279-4b0f-8396-0ddaa41d16bc.png)
+
+* Finish a game :
+![image](https://user-images.githubusercontent.com/49819371/236709010-181a867d-5fb3-4efe-a4f5-f5ba4c67b003.png)
 
 
-
+* Get teh Scoreboard :
+![image](https://user-images.githubusercontent.com/49819371/236709099-345d4834-6108-496c-910f-018baaeb58f8.png)
 
 
