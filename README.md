@@ -2,7 +2,6 @@
 
 ## Table of contents
 * [General info](#general-info)
-* [Technologies](#technologies)
 * [Setup](#setup)
 * [Known issues](#known-issues)
 * [Example test scenario](#example-test-scenario)
@@ -16,13 +15,8 @@ This project is simple API implementation to show basic Football Scoreboard func
 * Updating a Game with new scores
 * Finishing the game
 * Retrieving the summary of scores which are in progress (List scores of games which are Not Finished yet)
-
-	
-## Technologies
-Project is created with:
-* JAva Spring Boot Api
-* JUnit for TESTs
-* Date-Time parameters selected as "Unix Time Stamp" for better flexiblity and easy sorting operations.
+* Project is created with Java Spring Boot Api
+* NOTE: Date-Time values are used as "Unix Time Stamp" to make sorting easy.
 	
 ## Setup
 1. Clone git repository 
