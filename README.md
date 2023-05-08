@@ -17,6 +17,7 @@ This project is simple API implementation to show basic Football Scoreboard func
 * Retrieving the summary of scores which are in progress (List scores of games which are Not Finished yet)
 * Project is created with Java Spring Boot Api
 * NOTE: Date-Time values are used as "Unix Time Stamp" to make sorting easy.
+* Service layer has abstraction with "IFootballService" interface to make it ready for Dependency Injections.
 	
 ## Setup
 1. Clone git repository 
