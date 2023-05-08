@@ -31,7 +31,7 @@ $ git clone https://github.com/mastermeric/SPORTRADAR-DEMO.git
 
 ## Known Issues
 - [x] Multi-threaded usage need to be maintained. (Static memory lists are open to risks in concurrency)
-- [x] A database will be betetr solution instead of in-memory collection (To do maintainable Sorting/Filtering etc)
+- [x] A database can be used for better solution instead of in-memory collection (To do maintainable Sorting/Filtering etc)
 
 
 ## Example Test Scenario 
