@@ -21,8 +21,8 @@ This project is simple API implementation to show basic Football Scoreboard func
 ## Setup
 1. Clone git repository 
 2. Run Java application in your IDE
-3. Open a borwser or Postman to browse the page at "http://localhost:8080"
-4. Enter Paramaters as Query String values on a Browser (Or on a Postman like tool)
+3. Open a borwser or Postman to test functions at "http://localhost:8080"
+4. Enter Paramaters as Query String values on a Browser (Or on a Postman like tool), see example screeenshots below.
 
 ```
 $ git clone https://github.com/mastermeric/SPORTRADAR-DEMO.git
